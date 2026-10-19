@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sản phẩm — AEROLUX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="main-content">
+    <div class="container">
+      <nav class="breadcrumb" id="breadcrumb"></nav>
+      <div class="product-detail">
+        <div class="product-gallery">
+          <div class="gallery-main">
+            <img id="gallery-main-img" src="" alt="">
+          </div>
+          <div class="gallery-thumbs" id="gallery-thumbs"></div>
+        </div>
+        <div class="product-info">
+          <div class="product-info-brand" id="product-brand"></div>
+          <h1 class="product-info-title" id="product-name"></h1>
+          <div class="product-info-meta">
+            <span id="product-rating"></span>
+            <span class="product-info-sku">SKU: <span id="product-sku"></span></span>
+          </div>
+          <div class="product-info-price" id="product-price"></div>
+          <div id="product-variants" class="product-variants"></div>
+          <div class="product-stock" id="product-stock"></div>
+          <div class="product-warranty" id="product-warranty-wrap">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span id="product-warranty"></span>
+          </div>
+          <div class="product-actions">
+            <div class="qty-selector">
+              <button class="qty-btn" id="qty-minus">−</button>
+              <input type="number" class="qty-input" id="qty-input" value="1" min="1">
+              <button class="qty-btn" id="qty-plus">+</button>
+            </div>
+            <button class="btn btn-primary btn-lg" id="btn-add-cart">Thêm vào giỏ</button>
+            <button class="btn btn-accent btn-lg" id="btn-buy-now">Mua ngay</button>
+            <button class="btn btn-ghost btn-icon" id="btn-wishlist" title="Yêu thích">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-tabs-section">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="tab-description">Mô tả</button>
+          <button class="tab-btn" data-tab="tab-specs">Thông số kỹ thuật</button>
+          <button class="tab-btn" data-tab="tab-reviews">Đánh giá</button>
+        </div>
+        <div class="tab-content active" id="tab-description"></div>
+        <div class="tab-content" id="tab-specs"></div>
+        <div class="tab-content" id="tab-reviews">
+          <div id="reviews-list"></div>
+          <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--color-border)">
+            <h3 style="margin-bottom:1rem">Gửi đánh giá của bạn</h3>
+            <p style="font-size:0.875rem;color:var(--color-text-muted);margin-bottom:1rem">Lưu ý: Đánh giá được lưu trên trình duyệt của bạn (dữ liệu demo), chưa đồng bộ giữa các khách hàng.</p>
+            <form id="review-form">
+              <div class="form-group">
+                <label>Họ tên</label>
+                <input type="text" id="review-name" required>
+              </div>
+              <div class="form-group">
+                <label>Đánh giá</label>
+                <div class="rating-input">
+                  <input type="radio" name="rating" value="5" id="r5"><label for="r5">★</label>
+                  <input type="radio" name="rating" value="4" id="r4"><label for="r4">★</label>
+                  <input type="radio" name="rating" value="3" id="r3"><label for="r3">★</label>
+                  <input type="radio" name="rating" value="2" id="r2"><label for="r2">★</label>
+                  <input type="radio" name="rating" value="1" id="r1"><label for="r1">★</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Nội dung</label>
+                <textarea id="review-content" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="related-products">
+        <div class="section-header">
+          <h2 class="section-title">Sản phẩm liên quan</h2>
+        </div>
+        <div class="product-grid" id="related-products"></div>
+      </div>
+
+      <div class="related-products" id="recent-section" style="display:none">
+        <div class="section-header">
+          <h2 class="section-title">Đã xem gần đây</h2>
+        </div>
+        <div class="product-grid" id="recent-products"></div>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data/categories.js"></script>
+  <script src="assets/js/data/brands.js"></script>
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/core/utils.js"></script>
+  <script src="assets/js/core/storage.js"></script>
+  <script src="assets/js/core/product-service.js"></script>
+  <script src="assets/js/core/cart-service.js"></script>
+  <script src="assets/js/components/toast.js"></script>
+  <script src="assets/js/components/product-card.js"></script>
+  <script src="assets/js/components/header.js"></script>
+  <script src="assets/js/pages/product.js"></script>
+</body>
+</html>

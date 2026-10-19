@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán — AEROLUX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="main-content">
+    <div class="page-header"><div class="container"><h1>Thanh toán</h1></div></div>
+    <div class="container">
+      <div id="checkout-empty" class="empty-state" style="display:none">
+        <h3>Giỏ hàng trống</h3>
+        <p>Không có sản phẩm để thanh toán</p>
+        <a href="index.html" class="btn btn-primary">Mua sắm ngay</a>
+      </div>
+      <div id="order-success" class="order-success" style="display:none">
+        <div class="order-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h1>Đặt hàng thành công!</h1>
+        <p>Cảm ơn bạn đã mua hàng tại AEROLUX. Đây là giao dịch demo — không có thanh toán thực tế.</p>
+        <div class="order-code" id="order-code"></div>
+        <p>Chúng tôi sẽ liên hệ xác nhận đơn hàng sớm nhất.</p>
+        <a href="index.html" class="btn btn-primary mt-4">Về trang chủ</a>
+      </div>
+      <div class="checkout-layout" id="checkout-form-wrap">
+        <form id="checkout-form" class="checkout-form">
+          <div class="checkout-section">
+            <h2>Thông tin nhận hàng</h2>
+            <div class="form-row">
+              <div class="form-group"><label>Họ và tên *</label><input type="text" id="c-name" required></div>
+              <div class="form-group"><label>Số điện thoại *</label><input type="tel" id="c-phone" required placeholder="0xxxxxxxxx"></div>
+            </div>
+            <div class="form-group"><label>Email</label><input type="email" id="c-email"></div>
+            <div class="form-group"><label>Địa chỉ *</label><input type="text" id="c-address" required></div>
+            <div class="form-row">
+              <div class="form-group"><label>Tỉnh/Thành phố *</label><input type="text" id="c-city" required></div>
+              <div class="form-group"><label>Quận/Huyện</label><input type="text" id="c-district"></div>
+            </div>
+            <div class="form-group"><label>Ghi chú</label><textarea id="c-note" rows="2"></textarea></div>
+          </div>
+          <div class="checkout-section">
+            <h2>Phương thức thanh toán</h2>
+            <div class="payment-options">
+              <label class="payment-option selected"><input type="radio" name="payment" value="cod" checked> Thanh toán khi nhận hàng (COD)</label>
+              <label class="payment-option"><input type="radio" name="payment" value="transfer"> Chuyển khoản ngân hàng</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Xác nhận đặt hàng</button>
+          <p style="font-size:0.75rem;color:var(--color-text-muted);margin-top:1rem;text-align:center">Đây là quy trình demo. Không có giao dịch thanh toán thực tế.</p>
+        </form>
+        <div class="checkout-summary">
+          <h3>Đơn hàng</h3>
+          <div id="checkout-items"></div>
+          <div class="cart-summary-row" style="margin-top:1rem"><span>Tạm tính</span><span id="c-subtotal">0₫</span></div>
+          <div class="cart-summary-row"><span>Giảm giá</span><span id="c-discount">0₫</span></div>
+          <div class="cart-summary-row"><span>Vận chuyển</span><span id="c-shipping">0₫</span></div>
+          <div class="cart-summary-row total"><span>Tổng cộng</span><span id="c-total">0₫</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data/categories.js"></script>
+  <script src="assets/js/data/brands.js"></script>
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/core/utils.js"></script>
+  <script src="assets/js/core/storage.js"></script>
+  <script src="assets/js/core/product-service.js"></script>
+  <script src="assets/js/core/cart-service.js"></script>
+  <script src="assets/js/components/toast.js"></script>
+  <script src="assets/js/components/product-card.js"></script>
+  <script src="assets/js/components/header.js"></script>
+  <script src="assets/js/pages/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm kiếm — AEROLUX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="main-content">
+    <div class="page-header">
+      <div class="container">
+        <h1>Kết quả tìm kiếm <span id="search-query"></span></h1>
+        <form id="search-form-page" style="max-width:480px;margin-top:1rem;display:flex;gap:0.5rem">
+          <input type="search" id="search-input-page" placeholder="Tìm sản phẩm..." style="flex:1">
+          <button type="submit" class="btn btn-primary">Tìm</button>
+        </form>
+        <p id="search-count" style="margin-top:0.5rem;color:var(--color-text-muted)"></p>
+      </div>
+    </div>
+    <div class="container" style="padding:2rem 1rem">
+      <div class="product-grid" id="search-results"></div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data/categories.js"></script>
+  <script src="assets/js/data/brands.js"></script>
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/core/utils.js"></script>
+  <script src="assets/js/core/storage.js"></script>
+  <script src="assets/js/core/product-service.js"></script>
+  <script src="assets/js/core/cart-service.js"></script>
+  <script src="assets/js/components/toast.js"></script>
+  <script src="assets/js/components/product-card.js"></script>
+  <script src="assets/js/components/header.js"></script>
+  <script src="assets/js/pages/search.js"></script>
+</body>
+</html>

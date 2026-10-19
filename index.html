@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEROLUX — Quạt điện & Thiết bị chiếu sáng cao cấp</title>
+  <meta name="description" content="AEROLUX chuyên cung cấp quạt trần, quạt bàn, đèn LED, đèn âm trần và đèn trang trí chất lượng cao. Giao hàng toàn quốc.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="main-content">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h1>Không gian sống<br>mát lành & rạng rỡ</h1>
+          <p>Khám phá bộ sưu tập quạt điện và thiết bị chiếu sáng cao cấp từ AEROLUX. Tiết kiệm điện – Bền bỉ – Thiết kế hiện đại.</p>
+          <div class="hero-actions">
+            <a href="category.html?category=quat-tran" class="btn btn-primary btn-lg">Khám phá quạt trần</a>
+            <a href="category.html?category=den-led" class="btn btn-outline btn-lg">Xem đèn LED</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-placeholder">💡</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Danh mục nổi bật</h2>
+            <p class="section-subtitle">Lựa chọn theo nhu cầu của bạn</p>
+          </div>
+        </div>
+        <div class="featured-categories" id="featured-categories"></div>
+      </div>
+    </section>
+
+    <!-- Best seller fans -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Quạt điện bán chạy</h2>
+            <p class="section-subtitle">Được khách hàng tin dùng nhất</p>
+          </div>
+          <a href="category.html?category=quat-tran" class="section-link">Xem tất cả →</a>
+        </div>
+        <div class="product-grid" id="bestsellers-fans"></div>
+      </div>
+    </section>
+
+    <!-- LED -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Đèn LED nổi bật</h2>
+            <p class="section-subtitle">Tiết kiệm điện, tuổi thọ cao</p>
+          </div>
+          <a href="category.html?category=den-led" class="section-link">Xem tất cả →</a>
+        </div>
+        <div class="product-grid" id="featured-leds"></div>
+      </div>
+    </section>
+
+    <!-- Banner -->
+    <section class="section">
+      <div class="container">
+        <div class="banner-strip">
+          <div class="banner-strip-content">
+            <h2>Bộ sưu tập đèn âm trần 2026</h2>
+            <p>Siêu mỏng – Chống chói – Đổi màu linh hoạt. Nâng tầm không gian sống với công nghệ chiếu sáng hiện đại.</p>
+            <a href="category.html?category=den-led-am-tran" class="btn btn-primary">Khám phá ngay</a>
+          </div>
+          <div class="banner-strip-image">💡</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downlights -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Đèn LED âm trần</h2>
+            <p class="section-subtitle">Giải pháp chiếu sáng hiện đại</p>
+          </div>
+          <a href="category.html?category=den-led-am-tran" class="section-link">Xem tất cả →</a>
+        </div>
+        <div class="product-grid" id="featured-downlights"></div>
+      </div>
+    </section>
+
+    <!-- Decorative -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Đèn trang trí</h2>
+            <p class="section-subtitle">Điểm nhấn cho không gian sống</p>
+          </div>
+          <a href="category.html?category=den-trang-tri" class="section-link">Xem tất cả →</a>
+        </div>
+        <div class="product-grid" id="featured-decorative"></div>
+      </div>
+    </section>
+
+    <!-- New products -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Sản phẩm mới</h2>
+            <p class="section-subtitle">Cập nhật liên tục</p>
+          </div>
+        </div>
+        <div class="product-grid" id="new-products"></div>
+      </div>
+    </section>
+
+    <!-- Sale -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Đang khuyến mãi</h2>
+            <p class="section-subtitle">Giảm giá hấp dẫn</p>
+          </div>
+        </div>
+        <div class="product-grid" id="sale-products"></div>
+      </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header text-center" style="justify-content:center">
+          <div>
+            <h2 class="section-title">Thương hiệu nổi bật</h2>
+            <p class="section-subtitle">Đối tác uy tín</p>
+          </div>
+        </div>
+        <div class="brand-logos" id="brand-logos"></div>
+      </div>
+    </section>
+
+    <!-- Policies -->
+    <section class="section">
+      <div class="container">
+        <div class="policy-grid">
+          <div class="policy-card">
+            <div class="policy-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <h4>Giao hàng toàn quốc</h4>
+            <p>Miễn phí đơn từ 500.000đ. Giao nhanh 2-4 giờ nội thành.</p>
+          </div>
+          <div class="policy-card">
+            <div class="policy-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4>Bảo hành chính hãng</h4>
+            <p>Bảo hành từ 6 đến 36 tháng tùy sản phẩm. Hỗ trợ đổi mới.</p>
+          </div>
+          <div class="policy-card">
+            <div class="policy-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+            </div>
+            <h4>Đổi trả 7 ngày</h4>
+            <p>Đổi trả miễn phí trong 7 ngày nếu sản phẩm lỗi kỹ thuật.</p>
+          </div>
+          <div class="policy-card">
+            <div class="policy-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h4>Hỗ trợ 24/7</h4>
+            <p>Tư vấn kỹ thuật và hỗ trợ lắp đặt chuyên nghiệp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section bg-alt">
+      <div class="container">
+        <div class="section-header text-center" style="justify-content:center">
+          <div>
+            <h2 class="section-title">Khách hàng nói gì</h2>
+          </div>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Quạt trần Panasonic mua ở AEROLUX chạy rất êm, lắp đặt nhanh. Nhân viên tư vấn nhiệt tình, giao hàng đúng hẹn."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">TH</div>
+              <div>
+                <div class="testimonial-name">Trần Hoàng</div>
+                <div class="testimonial-meta">TP. Hồ Chí Minh</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Đèn âm trần siêu mỏng đẹp và sáng đều. Đã mua 20 cái cho cả nhà, rất hài lòng với chất lượng và giá cả."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">ML</div>
+              <div>
+                <div class="testimonial-name">Mai Lan</div>
+                <div class="testimonial-meta">Hà Nội</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Đèn thả trần Nordic rất đẹp, đúng như hình. Đóng gói cẩn thận, giao hàng nhanh. Sẽ ủng hộ tiếp."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">NA</div>
+              <div>
+                <div class="testimonial-name">Nguyễn An</div>
+                <div class="testimonial-meta">Đà Nẵng</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center" style="justify-content:center">
+          <div>
+            <h2 class="section-title">Câu hỏi thường gặp</h2>
+          </div>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">AEROLUX có giao hàng toàn quốc không?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">Có, chúng tôi giao hàng toàn quốc. Nội thành TP.HCM và Hà Nội giao trong 2-4 giờ. Các tỉnh thành khác 2-5 ngày làm việc. Miễn phí ship đơn từ 500.000đ.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Chính sách bảo hành như thế nào?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">Tất cả sản phẩm được bảo hành chính hãng từ 6 đến 36 tháng tùy loại. Bảo hành tại trung tâm ủy quyền hoặc đổi mới trong 30 ngày đầu nếu lỗi nhà sản xuất.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Tôi có thể đổi trả sản phẩm không?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">Bạn có thể đổi trả trong 7 ngày nếu sản phẩm còn nguyên tem, hộp và không có dấu hiệu đã sử dụng. Lỗi kỹ thuật được hỗ trợ đổi mới miễn phí.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Có hỗ trợ lắp đặt không?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer"><div class="faq-answer-inner">Có. Với quạt trần và đèn trang trí lớn, chúng tôi hỗ trợ lắp đặt tại TP.HCM và Hà Nội với phí ưu đãi. Liên hệ hotline để đặt lịch.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="container">
+        <h2>Đăng ký nhận ưu đãi</h2>
+        <p>Nhận mã giảm giá 10% cho đơn hàng đầu tiên và tin tức sản phẩm mới.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" placeholder="Email của bạn" required>
+          <button type="submit" class="btn">Đăng ký</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/data/categories.js"></script>
+  <script src="assets/js/data/brands.js"></script>
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/core/utils.js"></script>
+  <script src="assets/js/core/storage.js"></script>
+  <script src="assets/js/core/product-service.js"></script>
+  <script src="assets/js/core/cart-service.js"></script>
+  <script src="assets/js/components/toast.js"></script>
+  <script src="assets/js/components/product-card.js"></script>
+  <script src="assets/js/components/header.js"></script>
+  <script src="assets/js/pages/home.js"></script>
+</body>
+</html>

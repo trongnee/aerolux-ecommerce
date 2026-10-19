@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh mục — AEROLUX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <main class="main-content">
+    <div class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" id="breadcrumb"></nav>
+        <h1 id="category-title">Danh mục</h1>
+        <p id="category-desc"></p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="category-layout">
+        <aside class="filter-sidebar" id="filter-sidebar"></aside>
+        <div class="category-products">
+          <div class="subcategory-tags" id="subcategory-tags"></div>
+          <div class="sort-bar">
+            <div class="sort-bar-left">
+              <button class="btn btn-secondary btn-sm mobile-filter-toggle" id="mobileFilterBtn">Bộ lọc</button>
+              <span id="product-count">0 sản phẩm</span>
+            </div>
+            <select class="sort-select" id="sort-select">
+              <option value="default">Mặc định</option>
+              <option value="price-asc">Giá tăng dần</option>
+              <option value="price-desc">Giá giảm dần</option>
+              <option value="newest">Mới nhất</option>
+              <option value="bestseller">Bán chạy</option>
+              <option value="rating">Đánh giá cao</option>
+            </select>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/data/categories.js"></script>
+  <script src="assets/js/data/brands.js"></script>
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/core/utils.js"></script>
+  <script src="assets/js/core/storage.js"></script>
+  <script src="assets/js/core/product-service.js"></script>
+  <script src="assets/js/core/cart-service.js"></script>
+  <script src="assets/js/components/toast.js"></script>
+  <script src="assets/js/components/product-card.js"></script>
+  <script src="assets/js/components/header.js"></script>
+  <script src="assets/js/pages/category.js"></script>
+</body>
+</html>
