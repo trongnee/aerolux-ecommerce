@@ -63,27 +63,27 @@
         <div class="tab-content" id="tab-specs"></div>
         <div class="tab-content" id="tab-reviews">
           <div id="reviews-list"></div>
-          <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--color-border)">
-            <h3 style="margin-bottom:1rem">Gửi đánh giá của bạn</h3>
-            <p style="font-size:0.875rem;color:var(--color-text-muted);margin-bottom:1rem">Lưu ý: Đánh giá được lưu trên trình duyệt của bạn (dữ liệu demo), chưa đồng bộ giữa các khách hàng.</p>
+          <div class="review-form-card" id="review-form-section">
+            <h3>Gửi đánh giá của bạn</h3>
+            <p class="review-form-notice">Chia sẻ trải nghiệm sử dụng thực tế của bạn về sản phẩm này</p>
             <form id="review-form">
               <div class="form-group">
-                <label>Họ tên</label>
-                <input type="text" id="review-name" required>
+                <label>Họ tên *</label>
+                <input type="text" id="review-name" placeholder="Ví dụ: Nguyễn Văn An" required>
               </div>
               <div class="form-group">
-                <label>Đánh giá</label>
+                <label>Mức độ hài lòng *</label>
                 <div class="rating-input">
-                  <input type="radio" name="rating" value="5" id="r5"><label for="r5">★</label>
-                  <input type="radio" name="rating" value="4" id="r4"><label for="r4">★</label>
-                  <input type="radio" name="rating" value="3" id="r3"><label for="r3">★</label>
-                  <input type="radio" name="rating" value="2" id="r2"><label for="r2">★</label>
-                  <input type="radio" name="rating" value="1" id="r1"><label for="r1">★</label>
+                  <input type="radio" name="rating" value="5" id="r5"><label for="r5" title="5 sao">★</label>
+                  <input type="radio" name="rating" value="4" id="r4"><label for="r4" title="4 sao">★</label>
+                  <input type="radio" name="rating" value="3" id="r3"><label for="r3" title="3 sao">★</label>
+                  <input type="radio" name="rating" value="2" id="r2"><label for="r2" title="2 sao">★</label>
+                  <input type="radio" name="rating" value="1" id="r1"><label for="r1" title="1 sao">★</label>
                 </div>
               </div>
               <div class="form-group">
-                <label>Nội dung</label>
-                <textarea id="review-content" rows="4" required></textarea>
+                <label>Nội dung đánh giá *</label>
+                <textarea id="review-content" rows="4" placeholder="Cảm nhận về chất lượng, độ bền, độ êm ái, độ sáng..." required></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Gửi đánh giá</button>
             </form>

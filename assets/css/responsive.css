@@ -1,7 +1,8 @@
 /* Tablet */
 @media (max-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .product-grid,
+  .category-products .product-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .featured-categories {

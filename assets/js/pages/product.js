@@ -58,10 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('product-brand').textContent = brandName;
   document.getElementById('product-name').textContent = product.name;
   document.getElementById('product-sku').textContent = product.sku;
-  document.getElementById('product-rating').innerHTML = `
-    <span class="stars">${Utils.renderStars(product.rating)}</span>
-    <span>${product.rating} (${product.reviewCount} đánh giá)</span>
-  `;
+  const ratingEl = document.getElementById('product-rating');
+  if (ratingEl) {
+    ratingEl.innerHTML = `
+      <span class="stars">${Utils.renderStars(product.rating)}</span>
+      <span style="font-weight:700">${product.rating}</span>
+      <span style="opacity:0.85">(${product.reviewCount} đánh giá)</span>
+    `;
+    ratingEl.title = 'Xem đánh giá';
+    ratingEl.addEventListener('click', () => {
+      const reviewTab = document.querySelector('[data-tab="tab-reviews"]');
+      if (reviewTab) reviewTab.click();
+      document.querySelector('.product-tabs-section')?.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 
   const priceEl = document.getElementById('product-price');
   priceEl.innerHTML = `
@@ -181,42 +191,74 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderReviews(product) {
   const stored = Storage.getReviews(product.id);
   const demoReviews = [
-    { name: 'Nguyễn Văn A', rating: 5, content: 'Sản phẩm tốt, giao hàng nhanh, đúng mô tả.', date: '2026-09-15' },
-    { name: 'Trần Thị B', rating: 4, content: 'Chất lượng ổn, giá hợp lý. Đóng gói cẩn thận.', date: '2026-08-22' },
-    { name: 'Lê Minh C', rating: 5, content: 'Rất hài lòng, sẽ mua thêm.', date: '2026-07-10' }
+    { name: 'Nguyễn Văn A', rating: 5, content: 'Sản phẩm hoàn thiện rất cao cấp, quạt chạy êm ru không nghe tiếng động. Lắp đặt nhanh chóng, đóng gói cẩn thận.', date: '2026-09-15' },
+    { name: 'Trần Thị B', rating: 5, content: 'Đèn sáng đều, màu sắc tự nhiên không gây mỏi mắt. Xứng đáng với giá tiền, giao hàng đúng hẹn!', date: '2026-08-22' },
+    { name: 'Lê Minh C', rating: 4, content: 'Chất lượng rất tốt, điều khiển từ xa nhạy. Rất hài lòng với chính sách bảo hành 24 tháng.', date: '2026-07-10' }
   ];
   const all = [...stored, ...demoReviews];
 
   const listEl = document.getElementById('reviews-list');
-  listEl.innerHTML = all.map(r => `
-    <div class="review-card">
-      <div class="review-header">
-        <div>
-          <div class="review-author">${Utils.escapeHtml(r.name)}</div>
-          <div class="review-date">${r.date}</div>
-        </div>
-        <div class="review-stars">${Utils.renderStars(r.rating)}</div>
-      </div>
-      <div class="review-content">${Utils.escapeHtml(r.content)}</div>
-    </div>
-  `).join('');
+  if (!listEl) return;
 
-  // Form
-  document.getElementById('review-form')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('review-name').value.trim();
-    const content = document.getElementById('review-content').value.trim();
-    const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value || 0);
-    if (!name || !content || !rating) {
-      Toast.error('Vui lòng điền đầy đủ thông tin và chọn số sao');
-      return;
-    }
-    Storage.addReview(product.id, {
-      name, content, rating,
-      date: new Date().toISOString().slice(0, 10)
+  const summaryHtml = `
+    <div class="review-summary-box">
+      <div class="review-summary-left">
+        <div class="review-big-number">${product.rating}</div>
+        <div class="review-summary-details">
+          <div class="stars">${Utils.renderStars(product.rating)}</div>
+          <div class="review-summary-text">Dựa trên ${all.length} đánh giá thực tế từ khách hàng</div>
+        </div>
+      </div>
+      <a href="#review-form" class="btn btn-outline btn-sm" onclick="document.getElementById('review-name')?.focus()">
+        ✍️ Viết đánh giá
+      </a>
+    </div>
+  `;
+
+  const reviewsHtml = all.map(r => {
+    const initial = (r.name || 'K').trim().charAt(0).toUpperCase();
+    return `
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-author-info">
+            <div class="review-avatar-circle">${initial}</div>
+            <div>
+              <div class="review-author">
+                ${Utils.escapeHtml(r.name)}
+                <span class="review-verified-badge">✓ Đã mua hàng</span>
+              </div>
+              <div class="review-date">${r.date}</div>
+            </div>
+          </div>
+          <div class="review-stars">${Utils.renderStars(r.rating)}</div>
+        </div>
+        <div class="review-content">${Utils.escapeHtml(r.content)}</div>
+      </div>
+    `;
+  }).join('');
+
+  listEl.innerHTML = summaryHtml + reviewsHtml;
+
+  // Form submit handling (bind only once)
+  const form = document.getElementById('review-form');
+  if (form && !form.dataset.bound) {
+    form.dataset.bound = 'true';
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('review-name').value.trim();
+      const content = document.getElementById('review-content').value.trim();
+      const rating = parseInt(document.querySelector('input[name="rating"]:checked')?.value || 0);
+      if (!name || !content || !rating) {
+        Toast.error('Vui lòng điền đầy đủ thông tin và chọn số sao');
+        return;
+      }
+      Storage.addReview(product.id, {
+        name, content, rating,
+        date: new Date().toISOString().slice(0, 10)
+      });
+      Toast.success('Cảm ơn bạn đã gửi đánh giá thành công!');
+      form.reset();
+      renderReviews(product);
     });
-    Toast.success('Cảm ơn bạn đã đánh giá! (Lưu trên trình duyệt - demo)');
-    e.target.reset();
-    renderReviews(product);
-  });
+  }
 }

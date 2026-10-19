@@ -10,16 +10,22 @@ const ProductCard = {
     const isWishlisted = WishlistService.has(product.id);
 
     let badges = '';
-    if (discount > 0) badges += `<span class="badge-tag badge-sale">-${discount}%</span>`;
-    if (product.isNew) badges += `<span class="badge-tag badge-new">Mới</span>`;
-    if (product.bestSeller) badges += `<span class="badge-tag badge-bestseller">Bán chạy</span>`;
+    if (discount > 0) {
+      badges += `<span class="badge-tag badge-sale"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2c-4 4-6 7.5-6 10.5 0 3.5 2.5 6.5 6 6.5s6-3 6-6.5C18 9.5 16 6 12 2z"/></svg>-${discount}%</span>`;
+    }
+    if (product.bestSeller) {
+      badges += `<span class="badge-tag badge-bestseller"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Bán chạy</span>`;
+    }
+    if (product.isNew) {
+      badges += `<span class="badge-tag badge-new"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>Mới</span>`;
+    }
 
     return `
       <article class="product-card" data-id="${product.id}">
         <div class="product-card-image">
           <a href="product.html?id=${product.id}">
             <img src="${product.thumbnail || product.images[0]}" alt="${Utils.escapeHtml(product.name)}" loading="lazy"
-              onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27400%27%3E%3Crect fill=%27%231a365d%27 width=%27400%27 height=%27400%27/%3E%3Ctext fill=%27white%27 font-family=%27sans-serif%27 font-size=%2720%27 x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.3em%27%3EAEROLUX%3C/text%3E%3C/svg%3E'">
+              onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27400%27%3E%3Crect fill=%27%23eff6ff%27 width=%27400%27 height=%27400%27/%3E%3Ctext fill=%27%232563eb%27 font-family=%27sans-serif%27 font-size=%2722%27 font-weight=%27bold%27 x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27 dy=%27.3em%27%3EAEROLUX%3C/text%3E%3C/svg%3E'">
           </a>
           ${badges ? `<div class="product-card-badges">${badges}</div>` : ''}
           <div class="product-card-actions">
@@ -52,6 +58,7 @@ const ProductCard = {
         </div>
         <div class="product-card-footer">
           <button class="btn btn-primary btn-sm" data-action="add-cart" data-id="${product.id}">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
             Thêm vào giỏ
           </button>
         </div>
